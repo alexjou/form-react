@@ -115,7 +115,6 @@ export default function Login() {
                 error={
                   formik.touched.password && Boolean(formik.errors.password)
                 }
-                helperText={formik.touched.password && formik.errors.password}
                 endAdornment={
                   <IconButton
                     aria-label="toggle password visibility"

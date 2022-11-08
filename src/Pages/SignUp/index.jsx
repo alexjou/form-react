@@ -183,7 +183,6 @@ export default function SignUp() {
                 error={
                   formik.touched.password && Boolean(formik.errors.password)
                 }
-                helperText={formik.touched.password && formik.errors.password}
                 endAdornment={
                   <IconButton
                     aria-label="toggle password visibility"
@@ -216,10 +215,6 @@ export default function SignUp() {
                 error={
                   formik.touched.confirmPassword &&
                   Boolean(formik.errors.confirmPassword)
-                }
-                helperText={
-                  formik.touched.confirmPassword &&
-                  formik.errors.confirmPassword
                 }
                 endAdornment={
                   <IconButton

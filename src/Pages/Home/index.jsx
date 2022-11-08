@@ -32,7 +32,7 @@ export default function Home() {
   const [user, setUser] = useState({})
   const [update, setUpdate] = useState(false)
   const [open, setOpen] = useState(false)
-  const [name, setName] = useState('')
+  const [nome, setNome] = useState('')
   const [phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
   const [confirmOpen, setConfirmOpen] = useState(false)
@@ -75,7 +75,7 @@ export default function Home() {
               onClick={() => {
                 setOpen(true)
                 setUser(params.row)
-                setName(params.row.name)
+                setNome(params.row.name)
                 setPhone(params.row.phone)
               }}
             >
@@ -108,7 +108,7 @@ export default function Home() {
 
   function handleUpdate() {
     setLoading(true)
-    updateUser({ id: user.uid, name, phone, email: user.email })
+    updateUser({ id: user.uid, name: nome, phone, email: user.email })
     setUpdate(!update)
     setOpen(!open)
     setLoading(false)
@@ -193,8 +193,8 @@ export default function Home() {
                   autoComplete="name"
                   variant="outlined"
                   placeholder="Preencha com o nome"
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
+                  onChange={(e) => setNome(e.target.value)}
+                  value={nome}
                 />
               </Grid>
               <Grid item>
