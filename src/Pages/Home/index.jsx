@@ -19,7 +19,6 @@ import { useContext } from 'react'
 import AuthContext from '../../Context/AuthContext'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox'
-import { useForm } from '@formspree/react'
 import { FirstText } from '../SignUp/styles'
 
 export default function Home() {
@@ -31,7 +30,6 @@ export default function Home() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
-  const [handleSubmit] = useForm('xnqrlnnp')
 
   const columns = [
     {
@@ -76,7 +74,8 @@ export default function Home() {
               <DeleteForeverIcon color="error" />
             </IconButton>
           </Tooltip>
-          <form onSubmit={handleSubmit}>
+          <form action="https://formspree.io/f/xnqrlnnp"
+              method="POST">
             <input
               type="hidden"
               id="nome"

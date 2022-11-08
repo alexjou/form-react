@@ -4,8 +4,8 @@
 <img
     alt="Overmind"
     src="./src/Img/screen-react.gif"
-    width=300
-    height=700    
+    width=700
+    height=400    
   />
 </h1>
 
