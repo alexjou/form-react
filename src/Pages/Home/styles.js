@@ -24,7 +24,7 @@ export const ViewSubmit = styled(Box)`
 export const BoxModal = styled(Box)`
   top: 50%;
   left: 50%;
-  width: 40%;
+  width: 70%;
   height: 50%;
   display: flex;
   overflow: auto;

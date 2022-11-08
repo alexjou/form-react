@@ -4,6 +4,8 @@ import { BoxModal, Container, ContainerTable, ViewSubmit } from './styles'
 import {
   Button,
   CircularProgress,
+  Dialog,
+  DialogTitle,
   Grid,
   IconButton,
   Modal,
@@ -20,6 +22,9 @@ import AuthContext from '../../Context/AuthContext'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox'
 import { FirstText } from '../SignUp/styles'
+import axios from 'axios'
+import Lottie from 'react-lottie'
+import animationData from '../../Img/confetti.json'
 
 export default function Home() {
   const { signOut } = useContext(AuthContext)
@@ -30,6 +35,23 @@ export default function Home() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
+  const [confirmOpen, setConfirmOpen] = useState(false)
+
+  function sendEmail(data) {
+    axios({
+      url: 'https://formspree.io/f/xnqrlnnp',
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+      },
+      data: data,
+    }).then((response) => {
+      if (response.status === 200) {
+        setConfirmOpen(!confirmOpen)
+      }
+      console.log(response)
+    })
+  }
 
   const columns = [
     {
@@ -74,38 +96,11 @@ export default function Home() {
               <DeleteForeverIcon color="error" />
             </IconButton>
           </Tooltip>
-          <form action="https://formspree.io/f/xnqrlnnp"
-              method="POST">
-            <input
-              type="hidden"
-              id="nome"
-              value={params.row.name}
-              name="nome"
-            />
-            <input
-              type="hidden"
-              id="email"
-              value={params.row.email}
-              name="email"
-            />
-            <input
-              type="hidden"
-              id="telefone"
-              value={params.row.phone}
-              name="telefone"
-            />
-            <input
-              type="hidden"
-              id="senha"
-              value={params.row.password}
-              name="senha"
-            />
-            <Tooltip title="Enviar os dados para o e-mail caroline-brod@overmind.ai">
-              <IconButton aria-label="send" type="submit">
-                <ForwardToInboxIcon color="primary" />
-              </IconButton>
-            </Tooltip>
-          </form>
+          <Tooltip title="Enviar os dados para o e-mail caroline-brod@overmind.ai">
+            <IconButton aria-label="send" onClick={() => sendEmail(params.row)}>
+              <ForwardToInboxIcon color="primary" />
+            </IconButton>
+          </Tooltip>
         </>
       ),
     },
@@ -117,6 +112,15 @@ export default function Home() {
     setUpdate(!update)
     setOpen(!open)
     setLoading(false)
+  }
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
   }
 
   useEffect(() => {
@@ -182,7 +186,6 @@ export default function Home() {
               </Typography>
               <Grid item>
                 <TextField
-                  sx={{ width: 300 }}
                   required
                   id="name"
                   name="name"
@@ -205,7 +208,6 @@ export default function Home() {
                 >
                   {() => (
                     <TextField
-                      sx={{ width: 300 }}
                       required
                       id="phone"
                       name="phone"
@@ -247,6 +249,31 @@ export default function Home() {
           </BoxModal>
         </Modal>
       )}
+
+      <Dialog open={confirmOpen} sx={{ textAlign: 'center' }}>
+        <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400}
+          style={{ position: 'fixed', top: '20%', zIndex: 0 }}
+        />
+        <DialogTitle sx={{ m: 4 }}>
+          E-mail enviado com sucesso para:
+        </DialogTitle>
+        <Typography fontSize={20} fontWeight={'bold'} sx={{ mb: 6 }}>
+          caroline-brod@overmind.ai
+        </Typography>
+
+        <Button
+          variant="contained"
+          color="error"
+          type="submit"
+          sx={{ textTransform: 'none' }}
+          onClick={(e) => setConfirmOpen(!confirmOpen)}
+        >
+          Voltar
+        </Button>
+      </Dialog>
     </Container>
   )
 }
