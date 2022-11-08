@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+<h1 align="center">OVERMIND</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+<img
+    alt="Overmind"
+    src="./src/Img/screen-react.gif"
+    width=300
+    height=700    
+  />
+</h1>
 
-## Available Scripts
+# Link: [URL](https://overmind-312e1.web.app/)
 
-In the project directory, you can run:
+### Funcionalidades
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Login, criação, alteração e remoção de usuários, salvando no localStorage e salvando no banco de dados(Firebase Firestore);
+- Logoff removendo os dados do localStorage
+- Na tela de exibição dos usuários(tela home) tem um botão de enviar os dados de qualquer usuário para o e-mail solicitado
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Tecnologias
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://pt-br.reactjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Como usar
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Clone o repositório
+$ git clone git@github.com:alexjou/form-react.git
 
-### `npm run eject`
+# Entre na pasta
+$ cd form-react
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Instale as dependencias
+$ yarn install ou npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Inicie o site
+$ yarn start ou npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+###
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## DESCRIÇÃO DO TESTE
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🏗 O que fazer? - Formulário Básico
 
-### Code Splitting
+Este teste consiste em construir um formulário cadastral básico, utilizando qualquer - ou nenhum - framework de frontend, que permita um acesso direto por um arquivo .html e que apresente:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Nome completo
+- Email
+- Telefone
+- senha e validação de senha
+- botão de enviar
 
-### Analyzing the Bundle Size
+Ao clicar em enviar, a página deverá enviar o conteúdo do formulário para caroline-brod@overmind.ai
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚨 Requisitos
 
-### Making a Progressive Web App
+- O formulário necessariamente precisará ser responsivo. A interação via desktop deverá ser prioritária, mas ele deverá preservar a navegabilidade em smartphones.
+- O estilo do formulário é completamente livre, e as escolhas de interação e cores serão também critérios desta avaliação.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Diferenciais:
+- possibilidade de alternar entre modo dia (interfaces claras) e modo noite (interfaces escuras)
+- interações animadas em focus, hover e quaisquer outras que julgar pertinentes à proposta
+- popup de confirmação após clicar em enviar
 
-### Advanced Configuration
+## 🕵🏻‍♂️ Itens a serem avaliados
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+✔️  Organização do código (independente da tecnologia utilizada)
+✔️  Limpeza
+✔️  Facilidade de entendimento.
 
-### Deployment
+## Database
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [Firebase - Authentication](https://firebase.google.com/docs/auth?hl=pt-br)
 
-### `npm run build` fails to minify
+Responsavel por fazer a autenticação de novos usuários, criando um ID único.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="./src/Img/auth.PNG" alt="Logo of the project" align="center">
+
+- [Firebase - Firestore](https://firebase.google.com/docs/firestore?hl=pt-br)
+
+Responsavel por salvar os dados para exibição e edição de novos usuários, cadastrando com o mesmo ID criado na autenticação.
+
+<img src="./src/Img/firestore.PNG" alt="Logo of the project" align="center">
+
+- [Firebase - Hosting](https://firebase.google.com/docs/hosting)
+
+Responsavel por hospedar o site.
+
+<img src="./src/Img/hosting.PNG" alt="Logo of the project" align="center">

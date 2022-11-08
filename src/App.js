@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./Context/AuthContext";
+import { initializeFirebase } from "./Firebase/config";
+import env from "./Firebase/env.json";
+import Routes from "./Routes/Routes";
+import Footer from "./utils/Footer";
 
 function App() {
+  initializeFirebase(env);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+      <Footer/>
+    </BrowserRouter>
   );
 }
 
