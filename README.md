@@ -96,3 +96,7 @@ Responsavel por salvar os dados para exibição e edição de novos usuários, c
 Responsavel por hospedar o site.
 
 <img src="./src/Img/hosting.PNG" alt="Logo of the project" align="center">
+
+
+Criado outro formulário mais simples, em HTML, CSS e JAVASCRIPT:
+- [Formulário HTML](https://alexjou.github.io/Formulario-HTML-CSS-JAVASCRIPT/)
